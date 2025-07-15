@@ -8,7 +8,11 @@ load_dotenv()
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
 app = Flask(__name__)
-CORS(app, origins=["https://ai-based-news-article-summarizer.vercel.app"], methods=["POST", "OPTIONS"], allow_headers="*")
+CORS(app, resources={r"/*": {"origins": "*"}})
+
+@app.route("/")
+def health_check():
+    return "✅ Flask backend is running on Render!"
 
 @app.route("/summarize", methods=["POST"])
 def summarize_article():

@@ -40,6 +40,9 @@ function App() {
         {loading ? "Summarizing..." : "Summarize"}
       </button>
 
+      {/* Show while waiting */}
+      {loading && <p style={{ marginTop: "10px" }}>⏳ Waiting for server to respond...</p>}
+
       {summaryData && summaryData.error && (
         <div className="summary-box error">
           <p>{summaryData.error}</p>
