@@ -34,7 +34,7 @@ def summarize_article():
         data = request.get_json()
         url = data.get("url")
 
-        model = genai.GenerativeModel("models/gemini-1.5-flash-latest")
+        model = genai.GenerativeModel("models/gemini-1.5-flash")
 
         prompt = f"""
         You are a helpful AI assistant for NEWS summarizer. Given the news article, extract the following details:
