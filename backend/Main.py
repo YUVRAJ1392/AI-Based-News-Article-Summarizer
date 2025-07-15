@@ -16,6 +16,14 @@ CORS(app, resources={
     }
 })
 
+@app.route("/summarize", methods=["OPTIONS"])
+def handle_preflight():
+    response = jsonify({})
+    response.headers.add("Access-Control-Allow-Origin", "https://ai-based-news-article-summarizer.vercel.app")
+    response.headers.add("Access-Control-Allow-Headers", "Content-Type")
+    response.headers.add("Access-Control-Allow-Methods", "POST, OPTIONS")
+    return response
+
 @app.route("/")
 def health_check():
     return "✅ Flask backend is running on Render!"
