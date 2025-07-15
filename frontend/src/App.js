@@ -9,7 +9,7 @@ function App() {
   const handleSummarize = async () => {
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:5000/summarize", {
+      const res = await fetch("https://ai-based-news-article-summarizer.onrender.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
